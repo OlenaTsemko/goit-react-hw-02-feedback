@@ -1,12 +1,23 @@
-const FeedbackList = ({ onLeaveFeedback }) => (
-  <div>
-    <button onClick={() => onLeaveFeedback('good')}>Good</button>
-    <button onClick={() => onLeaveFeedback('neutral')}>Neutral</button>
-    <button onClick={() => onLeaveFeedback('bad')}>Bad</button>
+import styles from './FeedbackOptions.module.scss';
+import PropTypes from 'prop-types';
+
+const FeedbackOptions = ({ options, onLeaveFeedback }) => (
+  <div className={styles.feedbackBtnWrapper}>
+    {options.map(option => (
+      <button
+        className={styles.feedbackBtn}
+        key={option}
+        onClick={() => onLeaveFeedback(`${option}`)}
+      >
+        {option}
+      </button>
+    ))}
   </div>
 );
 
-// defaultProps = {}
-// propTypes = {}
+FeedbackOptions.propTypes = {
+  options: PropTypes.arrayOf(PropTypes.string.isRequired).isRequired,
+  onLeaveFeedback: PropTypes.func.isRequired,
+};
 
-export default FeedbackList;
+export default FeedbackOptions;

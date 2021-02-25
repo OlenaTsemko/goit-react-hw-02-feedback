@@ -1,11 +1,16 @@
+import styles from './Section.module.scss';
+import PropTypes from 'prop-types';
+
 const Section = ({ title, children }) => (
-  <section>
-    <h2>{title}</h2>
+  <section className={styles.Section}>
+    <h2 className={styles.sectionTitle}>{title}</h2>
     {children}
   </section>
 );
 
-// defaultProps = {}
-// propTypes = {}
+Section.propTypes = {
+  title: PropTypes.string,
+  children: PropTypes.node,
+};
 
 export default Section;
