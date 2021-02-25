@@ -8,8 +8,6 @@ import Container from 'components/Container';
 
 import FeedbackWithClass from 'components/FeedbackWithClass';
 
-import './App.scss';
-
 const App = () => {
   const [state, setState] = useState({
     good: 0,
